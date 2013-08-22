@@ -1,0 +1,26 @@
+{% templatetag openblock %} extends "base-sidebar.html" {% templatetag closeblock %}
+
+{% templatetag openblock %} block title {% templatetag closeblock %}
+{{ app_name }}
+{% templatetag openblock %} endblock title {% templatetag closeblock %}
+
+{% templatetag openblock %} block extra_head {% templatetag closeblock %}
+        <link href="{% templatetag openvariable %} STATIC_URL {% templatetag closevariable %}{{ app_name }}/css/{{ app_name }}.css" rel="stylesheet">
+{% templatetag openblock %} endblock extra_head {% templatetag closeblock %}
+
+{% templatetag openblock %} block sidebar_content {% templatetag closeblock %}
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">Navigation</h3>
+    </div>
+    <div class="panel-body">
+        <ul>
+            <li><a href="{% templatetag openblock %} url '{{ app_name }}:index' {% templatetag closeblock %}">Poll list</a></li>
+        </ul>
+    </div>
+</div>
+{% templatetag openblock %} endblock sidebar_content {% templatetag closeblock %}
+
+{% templatetag openblock %} block extra_js {% templatetag closeblock %}
+        <script src="{% templatetag openvariable %} STATIC_URL {% templatetag closevariable %}{{ app_name }}/js/{{ app_name }}.js"></script>
+{% templatetag openblock %} endblock extra_js {% templatetag closeblock %}

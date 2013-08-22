@@ -1,18 +1,18 @@
-{% extends "base.html" %}
+{% templatetag openblock %} extends "{{ app_name }}/base.html" {% templatetag closeblock %}
 
-{% block content %}
-<h1>{{ poll.question }}</h1>
+{% templatetag openblock %} block main_content {% templatetag closeblock %}
+<h1>{% templatetag openvariable %} poll.question {% templatetag closevariable %}</h1>
 
-{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+{% templatetag openblock %} if error_message {% templatetag closeblock %}<div class="alert alert-danger">{% templatetag openvariable %} error_message {% templatetag closevariable %}</div>{% templatetag openblock %} endif {% templatetag closeblock %}
 
-<form action="{% url 'vote' poll.id %}" method="post">
-{% csrf_token %}
-{% for choice in poll.choice_set.all %}
-    <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}" />
-    <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br />
-{% endfor %}
-<input type="submit" value="Vote" />
+<form action="{% templatetag openblock %} url '{{ app_name }}:vote' poll.id {% templatetag closeblock %}" method="post" role="form">
+{% templatetag openblock %} csrf_token {% templatetag closeblock %}
+    <div class="checkbox">
+        {% templatetag openblock %} for choice in poll.choice_set.all {% templatetag closeblock %}
+        <input type="radio" name="choice" id="choice{% templatetag openvariable %} forloop.counter {% templatetag closevariable %}" value="{% templatetag openvariable %} choice.id {% templatetag closevariable %}" />
+        <label for="choice{% templatetag openvariable %} forloop.counter {% templatetag closevariable %}">{% templatetag openvariable %} choice.choice_text {% templatetag closevariable %}</label><br />
+        {% templatetag openblock %} endfor {% templatetag closeblock %}
+    </div>
+    <button type="submit" class="btn btn-default">Vote</button>
 </form>
-
-<a href="{% url 'index' %}">Back to poll list</a>
-{% endblock content %}
+{% templatetag openblock %} endblock main_content {% templatetag closeblock %}

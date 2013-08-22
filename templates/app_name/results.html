@@ -1,14 +1,14 @@
-{% extends "base.html" %}
+{% templatetag openblock %} extends "{{ app_name }}/base.html" {% templatetag closeblock %}
 
-{% block content %}
-<h1>{{ poll.question }}</h1>
+{% templatetag openblock %} block main_content {% templatetag closeblock %}
+<h1>{% templatetag openvariable %} poll.question {% templatetag closevariable %}</h1>
 
 <ul>
-{% for choice in poll.choice_set.all %}
-    <li>{{ choice.choice_text }} -- {{ choice.votes }} vote{{ choice.votes|pluralize }}</li>
-{% endfor %}
+{% templatetag openblock %} for choice in poll.choice_set.all {% templatetag closeblock %}
+    <li>{% templatetag openvariable %} choice.choice_text {% templatetag closevariable %} <span class="badge">{% templatetag openvariable %} choice.votes {% templatetag closevariable %} vote{% templatetag openvariable %} choice.votes|pluralize {% templatetag closevariable %}</span></li>
+{% templatetag openblock %} endfor {% templatetag closeblock %}
 </ul>
 
-<a href="{% url 'detail' poll.id %}">Vote again?</a><br>
-<a href="{% url 'index' %}">Back to poll list</a>
-{% endblock content %}
+<a class="btn btn-default" href="{% templatetag openblock %} url '{{ app_name }}:detail' poll.id {% templatetag closeblock %}">Vote again?</a>
+<a class="btn btn-default" href="{% templatetag openblock %} url '{{ app_name }}:index' {% templatetag closeblock %}">Back to poll list</a>
+{% templatetag openblock %} endblock main_content {% templatetag closeblock %}

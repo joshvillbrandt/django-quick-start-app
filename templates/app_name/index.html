@@ -1,13 +1,19 @@
-{% extends "base.html" %}
+{% templatetag openblock %} extends "{{ app_name }}/base.html" {% templatetag closeblock %}
 
-{% block content %}
-{% if latest_poll_list %}
+{% templatetag openblock %} block main_content {% templatetag closeblock %}
+<div class="page-header">
+    <h1>Poll List</h1>
+</div>
+
+<p class="lead">This page will show you all of the polls that have been created so far. Add a new poll through the <a href="/admin/"> admin interface</a>.</p>
+
+{% templatetag openblock %} if latest_poll_list {% templatetag closeblock %}
     <ul>
-    {% for poll in latest_poll_list %}
-        <li><a href="{% url 'detail' poll.id %}">{{ poll.question }}</a></li>
-    {% endfor %}
+    {% templatetag openblock %} for poll in latest_poll_list %}
+        <li><a href="{% templatetag openblock %} url '{{ app_name }}:detail' poll.id {% templatetag closeblock %}">{% templatetag openvariable %} poll.question {% templatetag closevariable %}</a></li>
+    {% templatetag openblock %} endfor {% templatetag closeblock %}
     </ul>
-{% else %}
+{% templatetag openblock %} else {% templatetag closeblock %}
     <p>No polls are available.</p>
-{% endif %}
-{% endblock content %}
+{% templatetag openblock %} endif {% templatetag closeblock %}
+{% templatetag openblock %} endblock main_content {% templatetag closeblock %}

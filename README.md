@@ -8,7 +8,7 @@ This is a Django app template to help you get up and running quickly.
 By this point, you should already have a Django project set up. If you haven't, check out [django-quick-start-project](http://github.com/joshvillbrandt/django-quick-start-project). Once you do, run the command below replacing app_name with the name of your new app.
 
     cd project
-    python manage.py startapp --template=https://github.com/joshvillbrandt/django-quick-start-project/archive/master.zip app_name
+    python manage.py startapp --template=https://github.com/joshvillbrandt/django-quick-start-project/archive/master.zip --extension=py,html app_name
 
 # Get to work
 
@@ -20,7 +20,7 @@ Next, you'll want to create some models and views associated with your app. The 
 
 If you do want to make some changes of your own, you will want to edit code in app_name/models.py, app_name/views.py, app_name/urls.py, and app_name/admin.py. Also, don't forget to include your app's urls.py file in the urlpatterns of your projects main urls.py file like so:
 
-    url(r'^app_name/', include('app_name.urls'), namespace="app_name"),
+    url(r'^app_name/', include('app_name.urls', namespace="app_name")),
 
 Once you have your everything set up, add the new tables to your database and start the server:
 
