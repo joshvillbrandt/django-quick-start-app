@@ -8,7 +8,7 @@ This is a Django app template to help you get up and running quickly.
 By this point, you should already have a Django project set up. If you haven't, check out [django-quick-start-project](http://github.com/joshvillbrandt/django-quick-start-project). Once you do, run the command below replacing app_name with the name of your new app.
 
     cd project
-    python manage.py startapp --template=https://github.com/joshvillbrandt/django-quick-start-project/archive/master.zip --extension=py,html app_name
+    python manage.py startapp --template=https://github.com/joshvillbrandt/django-quick-start-app/archive/master.zip --extension=py,html app_name
 
 # Get to work
 
