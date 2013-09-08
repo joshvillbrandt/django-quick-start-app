@@ -3,6 +3,8 @@ django-quick-start-app
 
 This is a Django app template to help you get up and running quickly.
 
+The django-quick-start-app template gets everything in order so you can start coding what is unique to your app. A basic template builds on base.html (from django-quick-start-project or elsewhere.) Empty app.js and app.css files are already included in the template. Just install and start coding!
+
 # Setup
 
 By this point, you should already have a Django project set up. If you haven't, check out [django-quick-start-project](http://github.com/joshvillbrandt/django-quick-start-project). Once you do, run the command below replacing app_name with the name of your new app.
